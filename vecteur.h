@@ -25,25 +25,25 @@ class Vecteur
 };
 
 template<class T>
-Vecteur::Vecteur()
+Vecteur<T>::Vecteur()
 {
-    elements = new T*[1];    
+    elements = new T[1];    
     size = 0;
     capacity = 1; 
 }
 
 template<class T>
-Vecteur::~Vecteur()
+Vecteur<T>::~Vecteur()
 {
     delete elements;
 }
 
 template<class T>
-int Vecteur::doubleCapacity()
+int Vecteur<T>::doubleCapacity()
 {
     capacity = capacity * 2;
     T *tmp;
-    tmp = new T*[capacity];
+    tmp = new T[capacity];
     for(int i = 0; i < size; i++)
     {
        tmp[i] = elements[i];
@@ -54,19 +54,19 @@ int Vecteur::doubleCapacity()
 }
 
 template<class T>
-int Vecteur::getCapacity()
+int Vecteur<T>::getCapacity()
 {
     return capacity;
 }
 
 template<class T>
-int Vecteur::getSize()
+int Vecteur<T>::getSize()
 {
     return size;
 }
 
 template<class T>
-bool Vecteur::isEmpty()
+bool Vecteur<T>::isEmpty()
 {
     if(size == 0)
     {
@@ -79,7 +79,7 @@ bool Vecteur::isEmpty()
 }
 
 template<class T>
-bool Vecteur::add(T element)
+bool Vecteur<T>::add(T element)
 {
     if(size == capacity)
     {
@@ -91,14 +91,14 @@ bool Vecteur::add(T element)
 }
 
 template<class T>
-T Vecteur::del(int index)
+T Vecteur<T>::del(int index)
 {
     if(index >= size || index < 0)
     {
         return nullptr;
     }
 
-    T* tmp = elements[index];
+    T tmp = elements[index];
     for(int i = index; i < size - 1; i++)
     {
         elements[i] = elements[i + 1];
@@ -109,17 +109,17 @@ T Vecteur::del(int index)
 }
 
 template<class T>
-T Vecteur::get(int index)
+T Vecteur<T>::get(int index)
 {
     if(index >= size || index < 0)
     {
-        return nullptr;
+        return NULL;
     }
     return elements[index];
 }
 
 template<class T>
-void Vecteur::empty()
+void Vecteur<T>::empty()
 {
     for(int i = 0; i < size; i++)
     {
