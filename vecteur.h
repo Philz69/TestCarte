@@ -13,7 +13,7 @@ class Vecteur
         int getCapacity();
         int getSize(); 
         bool isEmpty();
-        bool add(T element);
+        void operator=(T element);
         T del(int index);
         T get(int index);
         void empty();
@@ -79,7 +79,7 @@ bool Vecteur<T>::isEmpty()
 }
 
 template<class T>
-bool Vecteur<T>::add(T element)
+void Vecteur<T>::operator=(T element)
 {
     if(size == capacity)
     {
@@ -87,7 +87,6 @@ bool Vecteur<T>::add(T element)
     } 
     elements[size] = element; 
     size++;
-    return true;
 }
 
 template<class T>

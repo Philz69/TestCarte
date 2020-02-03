@@ -11,7 +11,7 @@ int main()
     cout << vecteurTest.getSize() << endl;
     for (int i = 0; i < 10; i++)
     {
-        vecteurTest.add(i);
+        vecteurTest = i;
     }
 
     cout << vecteurTest.getSize() << endl;
