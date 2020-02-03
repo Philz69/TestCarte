@@ -95,7 +95,7 @@ T Vecteur<T>::del(int index)
 {
     if(index >= size || index < 0)
     {
-        return nullptr;
+        return NULL;
     }
 
     T tmp = elements[index];
