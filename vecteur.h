@@ -24,6 +24,7 @@ class Vecteur
         int size;
 };
 
+template<class T>
 Vecteur::Vecteur()
 {
     elements = new T*[1];    
@@ -31,11 +32,13 @@ Vecteur::Vecteur()
     capacity = 1; 
 }
 
+template<class T>
 Vecteur::~Vecteur()
 {
     delete elements;
 }
 
+template<class T>
 int Vecteur::doubleCapacity()
 {
     capacity = capacity * 2;
@@ -50,16 +53,19 @@ int Vecteur::doubleCapacity()
    return capacity;
 }
 
+template<class T>
 int Vecteur::getCapacity()
 {
     return capacity;
 }
 
+template<class T>
 int Vecteur::getSize()
 {
     return size;
 }
 
+template<class T>
 bool Vecteur::isEmpty()
 {
     if(size == 0)
@@ -72,6 +78,7 @@ bool Vecteur::isEmpty()
     }
 }
 
+template<class T>
 bool Vecteur::add(T element)
 {
     if(size == capacity)
@@ -83,6 +90,7 @@ bool Vecteur::add(T element)
     return true;
 }
 
+template<class T>
 T Vecteur::del(int index)
 {
     if(index >= size || index < 0)
@@ -100,6 +108,7 @@ T Vecteur::del(int index)
     return tmp;
 }
 
+template<class T>
 T Vecteur::get(int index)
 {
     if(index >= size || index < 0)
@@ -109,6 +118,7 @@ T Vecteur::get(int index)
     return elements[index];
 }
 
+template<class T>
 void Vecteur::empty()
 {
     for(int i = 0; i < size; i++)
