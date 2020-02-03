@@ -11,14 +11,14 @@ int main()
     cout << vecteurTest.getSize() << endl;
     for (int i = 0; i < 10; i++)
     {
-        vecteurTest = i;
+        vecteurTest += i;
     }
 
     cout << vecteurTest.getSize() << endl;
     cout << "TEST" << endl;
     for (int i = 0; i < 10; i++)
     {
-        cout << vecteurTest.get(i) << endl;
+        cout << vecteurTest[i] << endl;
     }
     return 0;
 }

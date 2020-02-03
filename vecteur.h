@@ -13,9 +13,9 @@ class Vecteur
         int getCapacity();
         int getSize(); 
         bool isEmpty();
-        void operator=(T element);
+        void operator+=(T element);
         T del(int index);
-        T get(int index);
+        T operator[](int index);
         void empty();
     private:
         T *elements;
@@ -79,7 +79,7 @@ bool Vecteur<T>::isEmpty()
 }
 
 template<class T>
-void Vecteur<T>::operator=(T element)
+void Vecteur<T>::operator+=(T element)
 {
     if(size == capacity)
     {
@@ -108,7 +108,7 @@ T Vecteur<T>::del(int index)
 }
 
 template<class T>
-T Vecteur<T>::get(int index)
+T Vecteur<T>::operator[](int index)
 {
     if(index >= size || index < 0)
     {
