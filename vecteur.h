@@ -4,6 +4,7 @@
 
 #include <iostream>
 
+template<class T>
 class Vecteur
 {
     public:
@@ -12,13 +13,12 @@ class Vecteur
         int getCapacity();
         int getSize(); 
         bool isEmpty();
-        bool add(Forme *forme);
-        Forme* del(int index);
-        Forme* get(int index);
+        bool add(T element);
+        T del(int index);
+        T get(int index);
         void empty();
-        void afficher(ostream &s);
     private:
-        Forme** formes;
+        T *elements;
         int doubleCapacity();
         int capacity;
         int size;
@@ -26,27 +26,27 @@ class Vecteur
 
 Vecteur::Vecteur()
 {
-    formes = new Forme*[1];    
+    elements = new T*[1];    
     size = 0;
     capacity = 1; 
 }
 
 Vecteur::~Vecteur()
 {
-    delete formes;
+    delete elements;
 }
 
 int Vecteur::doubleCapacity()
 {
     capacity = capacity * 2;
-    Forme **tmp;
-    tmp = new Forme*[capacity];
+    T *tmp;
+    tmp = new T*[capacity];
     for(int i = 0; i < size; i++)
     {
-       tmp[i] = formes[i];
+       tmp[i] = elements[i];
     } 
-   delete formes;
-   formes = tmp;
+   delete elements;
+   elements = tmp;
    return capacity;
 }
 
@@ -72,60 +72,51 @@ bool Vecteur::isEmpty()
     }
 }
 
-bool Vecteur::add(Forme *forme)
+bool Vecteur::add(T element)
 {
     if(size == capacity)
     {
         capacity = doubleCapacity();
     } 
-    formes[size] = forme; 
+    elements[size] = element; 
     size++;
     return true;
 }
 
-Forme* Vecteur::del(int index)
+T Vecteur::del(int index)
 {
     if(index >= size || index < 0)
     {
         return nullptr;
     }
 
-    Forme* tmp = formes[index];
+    T* tmp = elements[index];
     for(int i = index; i < size - 1; i++)
     {
-        formes[i] = formes[i + 1];
+        elements[i] = elements[i + 1];
     }
-    formes[getSize() - 1] = nullptr;
+    elements[getSize() - 1] = nullptr;
     size = size - 1;
     return tmp;
 }
 
-Forme* Vecteur::get(int index)
+T Vecteur::get(int index)
 {
     if(index >= size || index < 0)
     {
         return nullptr;
     }
-    return formes[index];
+    return elements[index];
 }
 
 void Vecteur::empty()
 {
     for(int i = 0; i < size; i++)
     {
-        delete formes[i];
-        formes[i] = nullptr;
+        delete elements[i];
+        elements[i] = nullptr;
     }
     size = 0;
-}
-
-void Vecteur::afficher(ostream &s)
-{
-    for(int i = 0; i < size; i++)
-    {
-            formes[i]->afficher(s);     
-    }
-    return;
 }
 
 #endif
