@@ -6,21 +6,30 @@ using namespace std;
 
 int main()
 {
-    cout << "TEST" << endl;
+    cout << "--- Test d'operateur += ---" << endl;
     Vecteur<int> vecteurTest;
-    cout << vecteurTest.getSize() << endl;
+    cout << "Grosseur avant ajout: " << vecteurTest.getSize() << endl;
     for (int i = 0; i < 10; i++)
     {
         vecteurTest += i;
     }
 
-    cout << vecteurTest.getSize() << endl;
-    cout << "TEST" << endl;
+    cout << "Grosseur apres ajout: " << vecteurTest.getSize() << endl;
+
+    cout << "--- Test d'operateur[] ---" << endl;
     for (int i = 0; i < 10; i++)
     {
-        cout << vecteurTest[i] << endl;
+        cout << "vecteurTest[" << i << "] = " << vecteurTest[i] << endl;
     }
-    return 0;
 
+    cout << "--- Test d'index ---" << endl;
+    cout << vecteurTest.getIndex() << endl;
+    vecteurTest++;
+    cout << "vecteurTest++ -> " << vecteurTest.getIndex() << endl;
+    vecteurTest--;
+    cout << "vecteurTest++ -> " << vecteurTest.getIndex() << endl;
+
+    cout << "--- Test d'operateur << ---" << endl;
     cout << vecteurTest;
+    return 0;
 }

@@ -19,10 +19,15 @@ class Vecteur
         ~Vecteur();
         int getCapacity();
         int getSize(); 
+        int getIndex(); 
         bool isEmpty();
         void operator+=(T element);
         T del(int index);
         T operator[](int index);
+        void operator ++();
+        void operator --();
+        void operator ++(T);
+        void operator --(T);
         friend ostream& operator<< <> (ostream &s, Vecteur<T> &v);
         void empty();
     private:
@@ -30,6 +35,7 @@ class Vecteur
         int doubleCapacity();
         int capacity;
         int size;
+        int index;
 };
 
 template<class T>
@@ -38,6 +44,7 @@ Vecteur<T>::Vecteur()
     elements = new T[1];    
     size = 0;
     capacity = 1; 
+    index = 0;
 }
 
 template<class T>
@@ -141,9 +148,37 @@ ostream& operator<<(ostream &s, Vecteur<T> &v)
 {
     for(int i = 0; i < v.size; i++)
     {
-        std::cout << v.size;
         s << v.elements[i] << endl;
     }
 	return s;
+}
+
+template<class T>
+void Vecteur<T>::operator ++()
+{
+    index++;
+}
+template<class T>
+void Vecteur<T>::operator ++(T)
+{
+    index++;
+}
+
+template<class T>
+void Vecteur<T>::operator --()
+{
+    index--;
+}
+
+template<class T>
+void Vecteur<T>::operator --(T)
+{
+    index--;
+}
+
+template<class T>
+int Vecteur<T>::getIndex()
+{
+    return index;
 }
 #endif
