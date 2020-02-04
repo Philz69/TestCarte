@@ -21,4 +21,6 @@ int main()
         cout << vecteurTest[i] << endl;
     }
     return 0;
+
+    cout << vecteurTest;
 }

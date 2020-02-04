@@ -3,6 +3,13 @@
 #define VECTEUR_H
 
 #include <iostream>
+using namespace std;
+
+template<class T>
+class Vecteur;
+
+template<class T>
+ostream& operator<<(ostream &s, Vecteur<T> &v);
 
 template<class T>
 class Vecteur
@@ -16,6 +23,7 @@ class Vecteur
         void operator+=(T element);
         T del(int index);
         T operator[](int index);
+        friend ostream& operator<< <> (ostream &s, Vecteur<T> &v);
         void empty();
     private:
         T *elements;
@@ -128,4 +136,14 @@ void Vecteur<T>::empty()
     size = 0;
 }
 
+template<class T>
+ostream& operator<<(ostream &s, Vecteur<T> &v)
+{
+    for(int i = 0; i < v.size; i++)
+    {
+        std::cout << v.size;
+        s << v.elements[i] << endl;
+    }
+	return s;
+}
 #endif
