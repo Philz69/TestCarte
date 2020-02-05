@@ -31,7 +31,7 @@ int* Manip::LireSwitch()
 	int valeur=0;
 	int Switch[8] = { 0,0,0,0,0,0,0,0 };
 	lireRegistre(8,valeur);
-	if (valeur & 00000001 == 00000001) Switch[0] = 1;
+	if ((valeur & 00000001) == 00000001) Switch[0] = 1;
 	if (valeur & 00000010 == 00000010) Switch[1] = 1;
 	if (valeur & 00000100 == 00000100) Switch[2] = 1;
 	if (valeur & 00001000 == 00001000) Switch[3] = 1;

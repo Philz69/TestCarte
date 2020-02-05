@@ -9,9 +9,18 @@
 *   Copyright 2013 Département de génie électrique et génie informatique
 *                  Université de Sherbrooke  
 */
+#include <QApplication>
 #include <QStyleFactory>
 #include "MonInterface.h"
-#include "manip.h"
+
+int main(int argc, char ** argv)
+{
+	QApplication app(argc, argv);
+
+	MonInterface gui("TestVisiTest V5.1");
+
+	app.exec();
+}
 
 MonInterface::MonInterface(const char * theName) : VisiTest(theName)
 {

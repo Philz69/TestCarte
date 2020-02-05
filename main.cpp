@@ -10,14 +10,14 @@
 *   Copyright 2013 Département de génie électrique et génie informatique
 *                  Université de Sherbrooke  
 */
-#include <QApplication>
+/*#include <QApplication>
 #include "MonInterface.h"
 
 int main( int argc, char ** argv )
 {
 	QApplication app(argc, argv);
  
-	//MonInterface gui("TestVisiTest V5.1");
+	MonInterface gui("TestVisiTest V5.1");
 
-  // app.exec();
-}
+   app.exec();
+}*/
