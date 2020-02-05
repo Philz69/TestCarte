@@ -32,7 +32,7 @@ int* Manip::LireSwitch()
 {
 	int valeur=0;
 	int Switch[8] = { 0,0,0,0,0,0,0,0 };
-	CommunicationFPGA::lireRegistre(8,valeur);
+	lireRegistre(8,valeur);
 	if (valeur & 00000001 == 00000001) Switch[0] = 1;
 	if (valeur & 00000010 == 00000010) Switch[1] = 1;
 	if (valeur & 00000100 == 00000100) Switch[2] = 1;
@@ -48,7 +48,7 @@ int* Manip::LireBouton()
 {
 	int valeur = 0;
 	int Bouton[4] = { 0,0,0,0 };
-	CommunicationFPGA::lireRegistre(10, valeur);
+    lireRegistre(10, valeur);
 	if(valeur & 0001 == 0001) Bouton[0] = 1;
 	if(valeur & 0010 == 0010) Bouton[1] = 1;
 	if(valeur & 0100 == 0100) Bouton[2] = 1;
@@ -67,7 +67,7 @@ bool Manip::ActiverLED(int* TableauLED)
 	if (TableauLED[5] == 1) bit += 32;
 	if (TableauLED[6] == 1) bit += 64;
 	if (TableauLED[7] == 1) bit += 128;
-	CommunicationFPGA::ecrireRegistre(10, bit);
+    ecrireRegistre(10, bit);
 	return(1);
 	
 }
