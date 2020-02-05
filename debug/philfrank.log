@@ -1,3 +1,25 @@
-﻿TestVecteur.obj : error LNK2005: main déjà défini(e) dans TestFPGA.obj
-main.obj : error LNK2005: main déjà défini(e) dans TestFPGA.obj
+﻿  main.cpp
+c:\users\frank\documents\github\testcarte\manip.h(34): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(35): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(36): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(37): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(38): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(39): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(40): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(41): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(50): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(51): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(52): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(53): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
+c:\users\frank\documents\github\testcarte\manip.h(42): warning C4172: retourne l'adresse d'une variable locale ou : Switch temporaire
+c:\users\frank\documents\github\testcarte\manip.h(54): warning C4172: retourne l'adresse d'une variable locale ou : Bouton temporaire
+main.obj : error LNK2005: "public: __cdecl Manip::Manip(void)" (??0Manip@@QEAA@XZ) déjà défini(e) dans MonInterface.obj
+main.obj : error LNK2005: "public: __cdecl Manip::~Manip(void)" (??1Manip@@QEAA@XZ) déjà défini(e) dans MonInterface.obj
+main.obj : error LNK2005: "public: bool __cdecl Manip::ActiverLED(int *)" (?ActiverLED@Manip@@QEAA_NPEAH@Z) déjà défini(e) dans MonInterface.obj
+main.obj : error LNK2005: "public: int * __cdecl Manip::LireSwitch(void)" (?LireSwitch@Manip@@QEAAPEAHXZ) déjà défini(e) dans MonInterface.obj
+main.obj : error LNK2005: "public: int * __cdecl Manip::LireBouton(void)" (?LireBouton@Manip@@QEAAPEAHXZ) déjà défini(e) dans MonInterface.obj
+main.obj : error LNK2005: "public: __cdecl Tests::Tests(void)" (??0Tests@@QEAA@XZ) déjà défini(e) dans MonInterface.obj
+main.obj : error LNK2005: "public: __cdecl Tests::~Tests(void)" (??1Tests@@QEAA@XZ) déjà défini(e) dans MonInterface.obj
+main.obj : error LNK2005: "public: void __cdecl Tests::testsVecteur(void)" (?testsVecteur@Tests@@QEAAXXZ) déjà défini(e) dans MonInterface.obj
+main.obj : error LNK2005: "public: void __cdecl Tests::testsFPGA(void)" (?testsFPGA@Tests@@QEAAXXZ) déjà défini(e) dans MonInterface.obj
 debug\\philfrank.exe : fatal error LNK1169: un ou plusieurs symboles définis à différentes reprises ont été rencontrés

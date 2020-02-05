@@ -11,6 +11,7 @@
 */
 #include <QStyleFactory>
 #include "MonInterface.h"
+#include "manip.h"
 
 MonInterface::MonInterface(const char * theName) : VisiTest(theName)
 {
@@ -62,4 +63,10 @@ void MonInterface::testSuivant()
 	}
 
    message("bye");
+}
+
+void MonInterface::demarrer()
+{
+	Tests tests;
+	tests.testsFPGA();
 }

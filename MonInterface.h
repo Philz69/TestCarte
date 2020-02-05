@@ -13,11 +13,13 @@
 #define MONINTERFACE_H
 
 #include "VisiTest.h"
+#include "Tests.h"
 
 class MonInterface : public VisiTest
 {
 public:
 	MonInterface(const char *theName);
+	void demarrer();
 public slots:
 	virtual	void testSuivant();
 private:

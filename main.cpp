@@ -17,7 +17,7 @@ int main( int argc, char ** argv )
 {
 	QApplication app(argc, argv);
  
-	MonInterface gui("TestVisiTest V5.1");
+	//MonInterface gui("TestVisiTest V5.1");
 
-   app.exec();
+  // app.exec();
 }

@@ -1,5 +1,5 @@
-#import "manip.h"
-#import "vecteur.h"
+#include "manip.h"
+#include "vecteur.h"
 
 class Tests
 {
@@ -10,7 +10,18 @@ public:
     void testsFPGA(); 
 };
 
-Tests::testsVecteur()
+Tests::Tests()
+{
+
+}
+	
+Tests::~Tests()
+{
+
+}
+
+
+void Tests::testsVecteur()
 {
     cout << "--- Test d'operateur += ---" << endl;
     Vecteur<int> vecteurTest;
@@ -39,9 +50,9 @@ Tests::testsVecteur()
     cout << vecteurTest;
 }
 
-Tests::testsFPGA()
+void Tests::testsFPGA()
 {
-    Manip fpga;
+	Manip fpga;
     int LED[8] = { 0,0,0,0,0,0,0,1 };
     fpga.ActiverLED(LED);
 }

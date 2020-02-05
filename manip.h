@@ -20,12 +20,10 @@ public:
 
 Manip::Manip()
 {
-	;
 }
 
 Manip::~Manip()
 {
-	;
 }
 
 int* Manip::LireSwitch()
