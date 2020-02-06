@@ -40,7 +40,20 @@ MonInterface::MonInterface(const char * theName) : VisiTest(theName)
 
 void MonInterface::testSuivant()
 {
-	
+	if (save)
+	{
+		DonneesTest tmp;
+
+		tmp.registreSW = 8;
+		tmp.registreLD = 10;
+
+		tmp.retourSW = fpga.LireSwitch();
+		tmp.valeurLD = fpga.LireSwitch();
+		tmp.etatSW = fpga.LireSwitch();
+		tmp.etatLD = fpga.LireSwitch();
+
+		Archive += tmp;
+	}
 	if (donnee.typeTest == 1)
 	{
 		
@@ -143,6 +156,8 @@ void MonInterface::demarrer()
 	Tests tests;
 	tests.testsFPGA();
 	message("Demarer");
+
+	save = true;
 }
 
 
