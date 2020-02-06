@@ -16,22 +16,23 @@
 #include "Tests.h"
 
 
+
 class MonInterface : public VisiTest
 {
 public:
 	MonInterface(const char *theName);
 	void demarrer();
 public slots:
-	virtual	void testSuivant();
-	virtual void arreter();
-	virtual void vider();
-	virtual void modeFile();
-	virtual void modePile();
+	void testSuivant();
+	 void arreter();
+	 void vider();
+	 void modeFile();
+	 void modePile();
 
-	virtual void premier();
-	virtual void dernier();
-	virtual void precedent();
-	virtual void suivant();
+	 void premier();
+	 void dernier();
+	 void precedent();
+     void suivant();
 
 	void sauvegarder();
 	void quitter();

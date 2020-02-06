@@ -166,5 +166,43 @@ void MonInterface::arreter()
 {
 
 }
+void  MonInterface::vider()
+{
+
+}
+void  MonInterface::modeFile()
+{
+
+}
+void  MonInterface::modePile()
+{
+
+}
+
+void  MonInterface::premier()
+{
+
+}
+void  MonInterface::dernier()
+{
+
+}
+void  MonInterface::precedent()
+{
+
+}
+void  MonInterface::suivant()
+{
+
+}
+
+void  MonInterface::sauvegarder()
+{
+
+}
+void  MonInterface::quitter()
+{
+
+}
 
 
