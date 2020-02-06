@@ -53,6 +53,6 @@ void Tests::testsVecteur()
 void Tests::testsFPGA()
 {
 	Manip fpga;
-   // int LED[8] = { 1,0,0,1,0,0,0,1 };
+   //int LED[8] = { 1,0,0,1,0,0,0,1 };
     //fpga.ActiverLED(LED);
 }

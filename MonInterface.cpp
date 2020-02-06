@@ -42,21 +42,21 @@ void MonInterface::testSuivant()
 {
 	if (save)
 	{
-		DonneesTest tmp;
+		DonneesTest* tmp = new DonneesTest;
 
-		tmp.registreSW = 8;
-		tmp.registreLD = 10;
+		tmp->registreSW = 8;
+		tmp->registreLD = 10;
 
-		tmp.retourSW = fpga.LireSwitch();
-		tmp.valeurLD = fpga.LireSwitch();
-		tmp.etatSW = fpga.LireSwitch();
-		tmp.etatLD = fpga.LireSwitch();
+		tmp->retourSW = fpga.LireSwitch();
+		tmp->valeurLD = fpga.LireSwitch();
+		tmp->etatSW = fpga.LireSwitch();
+		tmp->etatLD = fpga.LireSwitch();
 
 		Archive += tmp;
 	}
 	if (donnee.typeTest == 1)
 	{
-		
+		//cout << "DEVRAIT APPARAITRE" << endl;
 		donnee.registreSW = 8;
 		donnee.retourSW = fpga.LireSwitch();
 		donnee.registreLD = 10;
@@ -66,6 +66,7 @@ void MonInterface::testSuivant()
 
 		donnee.etatLD= fpga.LireSwitch();
 		fpga.ActiverLED(fpga.LireSwitch());
+		//cout << "LED ALLUMEES" << endl;
 		 
 
 	}
@@ -164,36 +165,36 @@ void MonInterface::demarrer()
 
 void MonInterface::arreter()
 {
-
+	save = 0;
 }
 void  MonInterface::vider()
 {
-
+	Archive.empty();
 }
 void  MonInterface::modeFile()
 {
-
+	savemode = QUEUE;
 }
 void  MonInterface::modePile()
 {
-
+	savemode = PILE;
 }
 
 void  MonInterface::premier()
 {
-
+	Archive[0];
 }
 void  MonInterface::dernier()
 {
-
+	Archive[Archive.getSize()];
 }
 void  MonInterface::precedent()
 {
-
+	Archive--;
 }
 void  MonInterface::suivant()
 {
-
+	Archive++;
 }
 
 void  MonInterface::sauvegarder()

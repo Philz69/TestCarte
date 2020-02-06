@@ -14,7 +14,8 @@
 
 #include "VisiTest.h"
 #include "Tests.h"
-
+#define PILE 0
+#define QUEUE 1
 
 
 class MonInterface : public VisiTest
@@ -39,8 +40,9 @@ public slots:
 private:
 	DonneesTest donnee;
 	Manip fpga;
-	Vecteur<DonneesTest> Archive;
-	bool save = 0;
+	Vecteur<DonneesTest*> Archive;
+	bool save = false;
+	bool savemode = PILE;
 };
 
 #endif // MONINTERFACE_H
