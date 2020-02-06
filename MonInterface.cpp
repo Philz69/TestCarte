@@ -97,17 +97,50 @@ void MonInterface::testSuivant()
 
 	 if (donnee.typeTest == 3)
 	{
-		
-		donnee.registreSW = 8;
-		donnee.retourSW = fpga.LireSwitch();
-
-		donnee.registreLD = 10;
-		donnee.valeurLD = fpga.LireSwitch();
-
-		donnee.etatLD = fpga.LireSwitch();
+		 int etatLED = 0;
+		 donnee.registreSW = 8;
+		 donnee.retourSW = fpga.LireSwitch();
+		 donnee.etatSW = fpga.LireSwitch();
+		 donnee.registreLD = 10;
 		donnee.etatSW = fpga.LireSwitch();
-		
 
+		if ((fpga.LireSwitch() & 128) == 128)
+		{
+
+			etatLED = 0xff;
+			
+		}
+		else if ((fpga.LireSwitch() & 64) == 64)
+		{
+			etatLED = 0x7f;
+		}
+		else if ((fpga.LireSwitch() & 32) == 32)
+		{
+			etatLED = 0x3f;
+		}
+		else if ((fpga.LireSwitch() & 16) == 16)
+		{
+			etatLED = 0x1f;
+		}
+		else if ((fpga.LireSwitch() & 8) == 8)
+		{
+			etatLED = 0x0f;
+		}
+		else if ((fpga.LireSwitch() & 4) == 4)
+		{
+			etatLED = 0x07;	
+		}
+		else if ((fpga.LireSwitch() & 2) == 2)
+		{
+			etatLED = 0x03;
+		}
+		else if ((fpga.LireSwitch() & 1) == 1)
+		{
+			etatLED = 0x01;			
+		}
+		
+		donnee.etatLD = etatLED;
+		fpga.ActiverLED(etatLED);
 	}
 	
 	
