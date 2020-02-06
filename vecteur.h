@@ -2,6 +2,8 @@
 #ifndef VECTEUR_H
 #define VECTEUR_H
 #include <iostream>
+#define PILE 0
+#define QUEUE 1
 using namespace std;
 
 template<class T>
@@ -19,6 +21,7 @@ class Vecteur
         int getCapacity();
         int getSize(); 
         int getIndex(); 
+		void setMode(int i);
 		void setIndex(int i);
 		T getCurrent();
         bool isEmpty();
@@ -37,6 +40,7 @@ class Vecteur
         int capacity;
         int size;
         int index;
+		int mode;
 		int mode;
 };
 
@@ -102,8 +106,21 @@ void Vecteur<T>::operator+=(T element)
     {
         capacity = doubleCapacity();
     } 
-    elements[size] = element; 
-    size++;
+	if (mode == QUEUE)
+	{
+		elements[size] = element;
+		size++;
+	}
+	if (mode == PILE)
+	{
+		tmp = new T*;
+		for (int i = 0; i < size; i++)
+		{
+			tmp[size - i] = elements[i];	
+		}
+		tmp[0] = element;
+		size++;
+	}
 }
 
 template<class T>
@@ -208,6 +225,12 @@ template<class T>
 T Vecteur<T>::getCurrent()
 {
 	return elements[index];
+}
+
+template<class T>
+void Vecteur<T>::setMode(int i)
+{
+	mode = i;
 }
 
 ostream& operator<<(ostream &s,  const DonneesTest * donnees) 

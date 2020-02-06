@@ -14,8 +14,6 @@
 
 #include "VisiTest.h"
 #include "Tests.h"
-#define PILE 0
-#define QUEUE 1
 
 class MonInterface : public VisiTest
 {

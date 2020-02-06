@@ -152,11 +152,11 @@ void  MonInterface::vider()
 }
 void  MonInterface::modeFile()
 {
-	savemode = QUEUE;
+	Archive.setMode(QUEUE);
 }
 void  MonInterface::modePile()
 {
-	savemode = PILE;
+	Archive.setMode(PILE);
 }
 
 void  MonInterface::premier()
