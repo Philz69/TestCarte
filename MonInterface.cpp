@@ -124,47 +124,23 @@ void MonInterface::testSuivant()
 	setArchive(donnee.typeTest, donnee.registreSW);
 	if (donnee.typeTest == 3) donnee.typeTest = 0;
 	donnee.typeTest++;
-
-   /*if(donnee.etatLD > 0x80)
-	{
-		donnee.typeTest = 1;
-
-		donnee.registreSW = 8;
-		donnee.retourSW = 1;
-
-		donnee.registreLD = 10;
-		donnee.valeurLD = 1;
-
-		donnee.etatLD = 1;
-		donnee.etatSW = 1;
-	}
-	else
-	{
-		donnee.typeTest++;
-		
-		//donnee.registreSW++;
-		donnee.retourSW <<= 1;
-
-		//donnee.registreLD++;
-		donnee.valeurLD <<= 1;
-
-		donnee.etatLD <<= 1;
-		donnee.etatSW <<= 1;
-	}*/
-  
-   message("be");
+	if (save == true) message("Les tests sont maintenant enregistrer");
+	else message("Les tests ne sont pas enregistre");
 }
 
 void MonInterface::demarrer()
 {
 
 	save = true;
+	message("Les tests sont maintenant enregistrer");
 
 }
 
 void MonInterface::arreter()
 {
 	save = false;
+	message("Les tests ne sont plus enregistrer");
+
 }
 void  MonInterface::vider()
 {
