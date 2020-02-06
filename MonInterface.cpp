@@ -47,7 +47,7 @@ void MonInterface::testSuivant()
 		donnee.registreSW = 8;
 		donnee.retourSW = fpga.LireSwitch();
 		donnee.registreLD = 10;
-		donnee.etatLD= fpga.LireSwitch();
+		donnee.valeurLD = fpga.LireSwitch();
 		donnee.etatSW = fpga.LireSwitch();
 		
 
@@ -60,11 +60,11 @@ void MonInterface::testSuivant()
 	 if (donnee.typeTest == 2)
 	{
 		int count = 0;
+		int etatLED = 0;
 		donnee.registreSW = 8;
 		donnee.retourSW = fpga.LireSwitch();
 		donnee.etatSW = fpga.LireSwitch();
 		donnee.registreLD = 10;
-		
 		if ((fpga.LireSwitch() & 128) == 128)  count++;
 		if ((fpga.LireSwitch() & 64) == 64) count++;
 		if ((fpga.LireSwitch() & 32) == 32) count++;
@@ -73,26 +73,12 @@ void MonInterface::testSuivant()
 		if ((fpga.LireSwitch() & 4 )== 4) count++;
 		if ((fpga.LireSwitch() & 2 )== 2) count++;
 		if ((fpga.LireSwitch() & 1) == 1) count++;
-		if (count == 0)
-		{
-			donnee.valeurLD = 0;
-			fpga.ActiverLED(0);
-			donnee.etatLD = 0;
-		}
-		else if (count % 2 == 0)
-		{
-			fpga.ActiverLED(0xff);
-			donnee.valeurLD = 0xff;
-			donnee.etatLD = 0xff;
-		}
-		else
-		{
-			fpga.ActiverLED(0);
-			donnee.valeurLD = 0;
-			donnee.etatLD = 0;
-		}
-		
-
+		if (count == 0)	etatLED = 0;
+		else if (count % 2 == 0) etatLED = 0xff;
+		else etatLED = 0;
+		fpga.ActiverLED(etatLED);
+		donnee.valeurLD = etatLED;
+		donnee.etatLD = etatLED;
 	}
 
 	 if (donnee.typeTest == 3)
@@ -102,50 +88,20 @@ void MonInterface::testSuivant()
 		 donnee.retourSW = fpga.LireSwitch();
 		 donnee.etatSW = fpga.LireSwitch();
 		 donnee.registreLD = 10;
-		donnee.etatSW = fpga.LireSwitch();
-
-		if ((fpga.LireSwitch() & 128) == 128)
-		{
-
-			etatLED = 0xff;
-			
-		}
-		else if ((fpga.LireSwitch() & 64) == 64)
-		{
-			etatLED = 0x7f;
-		}
-		else if ((fpga.LireSwitch() & 32) == 32)
-		{
-			etatLED = 0x3f;
-		}
-		else if ((fpga.LireSwitch() & 16) == 16)
-		{
-			etatLED = 0x1f;
-		}
-		else if ((fpga.LireSwitch() & 8) == 8)
-		{
-			etatLED = 0x0f;
-		}
-		else if ((fpga.LireSwitch() & 4) == 4)
-		{
-			etatLED = 0x07;	
-		}
-		else if ((fpga.LireSwitch() & 2) == 2)
-		{
-			etatLED = 0x03;
-		}
-		else if ((fpga.LireSwitch() & 1) == 1)
-		{
-			etatLED = 0x01;			
-		}
 		
+
+		if ((fpga.LireSwitch() & 128) == 128) etatLED = 0xff;
+		else if ((fpga.LireSwitch() & 64) == 64) etatLED = 0x7f;
+		else if ((fpga.LireSwitch() & 32) == 32) etatLED = 0x3f;
+		else if ((fpga.LireSwitch() & 16) == 16) etatLED = 0x1f;
+		else if ((fpga.LireSwitch() & 8) == 8) etatLED = 0x0f;
+		else if ((fpga.LireSwitch() & 4) == 4) etatLED = 0x07;
+		else if ((fpga.LireSwitch() & 2) == 2) etatLED = 0x03;
+		else if ((fpga.LireSwitch() & 1) == 1) etatLED = 0x01;
 		donnee.etatLD = etatLED;
+		donnee.valeurLD = etatLED;
 		fpga.ActiverLED(etatLED);
 	}
-	
-	
-
-
 	setTest(donnee);
 	setArchive(donnee);
 	setArchive(donnee.typeTest, donnee.registreSW);
@@ -187,9 +143,6 @@ void MonInterface::demarrer()
 	Tests tests;
 	tests.testsFPGA();
 	message("Demarer");
-	Manip fpga;
-	
-
 }
 
 
