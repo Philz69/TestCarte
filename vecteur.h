@@ -26,8 +26,8 @@ class Vecteur
         T operator[](int index);
         void operator ++();
         void operator --();
-        void operator ++(T);
-        void operator --(T);
+        void operator ++(int);
+        void operator --(int);
         friend ostream& operator<< <> (ostream &s, Vecteur<T> &v);
         void empty();
     private:
