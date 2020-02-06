@@ -56,6 +56,7 @@ void MonInterface::testSuivant()
 		tmp->etatLD = fpga.LireSwitch();
 
 		Archive += tmp;
+		setArchive(Archive.getIndex() + 1, Archive.getSize());
 	}
 	if (donnee.typeTest == 1)
 	{
@@ -120,8 +121,8 @@ void MonInterface::testSuivant()
 		fpga.ActiverLED(etatLED);
 	}
 	setTest(donnee);
-	setArchive(donnee);
-	setArchive(donnee.typeTest, donnee.registreSW);
+	//setArchive(donnee);
+	//setArchive(donnee.typeTest, donnee.registreSW);
 	if (donnee.typeTest == 3) donnee.typeTest = 0;
 	donnee.typeTest++;
 	if (save == true) message("Les tests sont enregistrer");
@@ -133,6 +134,9 @@ void MonInterface::demarrer()
 
 	save = true;
 	message("Les tests sont enregistrer");
+	DonneesTest* donneeptr = &donnee;
+	cout << donnee;
+	cout << donneeptr;
 
 }
 
@@ -185,8 +189,6 @@ void  MonInterface::sauvegarder(char* nomFichier)
 	ofstream ofs(nomFichier);
 	ofs << Archive;
 	ofs.close();
-	cout << "Archive : ---- " << endl << Archive << endl;
-	cout << "Archive[0] : ---- " << endl << Archive[0] << endl;
 }
 void  MonInterface::quitter()
 {

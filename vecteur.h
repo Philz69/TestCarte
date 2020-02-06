@@ -210,15 +210,27 @@ T Vecteur<T>::getCurrent()
 	return elements[index];
 }
 
-ostream& operator<<(ostream &s,  const DonneesTest &donnees) 
+ostream& operator<<(ostream &s,  const DonneesTest * donnees) 
 {
- s << "Type test : " << donnees.typeTest << endl
+      s << "Type test : "               << donnees->typeTest   << endl
+		<< "Adresse switches : "        << donnees->registreSW << endl
+		<< "Retour switches : "  << dec << donnees->retourSW   << " (" << hex << donnees->retourSW << ")" << endl
+		<< "Etat switches : "    << dec << donnees->etatSW     << " (" << hex << donnees->etatSW << ")" << endl
+		<< "Adresse leds : "            << donnees->registreLD << endl
+		<< "Valeur leds : "      << dec << donnees->valeurLD   << " (" << hex << donnees->valeurLD << ")" << endl
+		<< "Etat leds : "        << dec <<donnees->etatLD      << " (" << hex << donnees->etatLD << ")" << endl;
+ return s;
+}
+
+ostream& operator<<(ostream &s, const DonneesTest &donnees)
+{
+	s << "Type test : " << donnees.typeTest << endl
 		<< "Adresse switches : " << donnees.registreSW << endl
 		<< "Retour switches : " << donnees.retourSW << " (" << hex << donnees.retourSW << ")" << endl
 		<< "Etat switches : " << donnees.etatSW << " (" << hex << donnees.etatSW << ")" << endl
 		<< "Adresse leds : " << donnees.registreLD << endl
 		<< "Valeur leds : " << donnees.valeurLD << " (" << hex << donnees.valeurLD << ")" << endl
 		<< "Etat leds : " << donnees.etatLD << " (" << hex << donnees.etatLD << ")" << endl;
- return s;
+	return s;
 }
 #endif
