@@ -140,10 +140,12 @@ void MonInterface::testSuivant()
 
 void MonInterface::demarrer()
 {
-	Tests tests;
-	tests.testsFPGA();
-	message("Demarer");
+	
 }
 
+void MonInterface::arreter()
+{
+
+}
 
 

@@ -23,9 +23,23 @@ public:
 	void demarrer();
 public slots:
 	virtual	void testSuivant();
+	virtual void demarrer();
+	virtual void arreter();
+	virtual void vider();
+	virtual void modeFile();
+	virtual void modePile();
+
+	virtual void premier();
+	virtual void dernier();
+	virtual void precedent();
+	virtual void suivant();
+
+	void sauvegarder();
+	void quitter();
 private:
 	DonneesTest donnee;
 	Manip fpga;
+	Vecteur<DonneesTest> Archive;
 };
 
 #endif // MONINTERFACE_H
