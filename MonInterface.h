@@ -35,7 +35,7 @@ public slots:
 	 void precedent();
      void suivant();
 
-	void sauvegarder();
+	void sauvegarder(char* nomFichier);
 	void quitter();
 private:
 	DonneesTest donnee;

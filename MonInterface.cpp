@@ -12,6 +12,7 @@
 #include <QApplication>
 #include <QStyleFactory>
 #include "MonInterface.h"
+#include <fstream>
 
 int main(int argc, char ** argv)
 {
@@ -36,6 +37,7 @@ MonInterface::MonInterface(const char * theName) : VisiTest(theName)
 
 	resetTest();
 	resetArchive();
+	setArchive(Archive.getIndex(), Archive.getSize());
 }
 
 void MonInterface::testSuivant()
@@ -44,6 +46,7 @@ void MonInterface::testSuivant()
 	{
 		DonneesTest* tmp = new DonneesTest;
 
+		tmp->typeTest = donnee.typeTest;
 		tmp->registreSW = 8;
 		tmp->registreLD = 10;
 
@@ -155,17 +158,13 @@ void MonInterface::testSuivant()
 void MonInterface::demarrer()
 {
 
-	Tests tests;
-	tests.testsFPGA();
-	message("Demarer");
-
 	save = true;
 
 }
 
 void MonInterface::arreter()
 {
-	save = 0;
+	save = false;
 }
 void  MonInterface::vider()
 {
@@ -182,24 +181,36 @@ void  MonInterface::modePile()
 
 void  MonInterface::premier()
 {
-	Archive[0];
+	Archive.setIndex(0);
+	setArchive(*Archive.getCurrent());
+	setArchive(Archive.getIndex() + 1, Archive.getSize());
 }
 void  MonInterface::dernier()
 {
-	Archive[Archive.getSize()];
+	Archive.setIndex(Archive.getSize() - 1);
+	setArchive(*Archive.getCurrent());
+	setArchive(Archive.getIndex() + 1, Archive.getSize());
 }
 void  MonInterface::precedent()
 {
 	Archive--;
+	setArchive(*Archive.getCurrent());
+	setArchive(Archive.getIndex() + 1, Archive.getSize());
 }
 void  MonInterface::suivant()
 {
 	Archive++;
+	setArchive(*Archive.getCurrent());
+	setArchive(Archive.getIndex() + 1, Archive.getSize());
 }
 
-void  MonInterface::sauvegarder()
+void  MonInterface::sauvegarder(char* nomFichier)
 {
-
+	ofstream ofs(nomFichier);
+	ofs << Archive;
+	ofs.close();
+	cout << "Archive : ---- " << endl << Archive << endl;
+	cout << "Archive[0] : ---- " << endl << Archive[0] << endl;
 }
 void  MonInterface::quitter()
 {

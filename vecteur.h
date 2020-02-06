@@ -20,6 +20,8 @@ class Vecteur
         int getCapacity();
         int getSize(); 
         int getIndex(); 
+		void setIndex(int i);
+		T getCurrent();
         bool isEmpty();
         void operator+=(T element);
         T del(int index);
@@ -143,6 +145,7 @@ void Vecteur<T>::empty()
         elements[i] = nullptr;
     }
     size = 0;
+	index = 0;
 }
 
 template<class T>
@@ -158,29 +161,66 @@ ostream& operator<<(ostream &s, Vecteur<T> &v)
 template<class T>
 void Vecteur<T>::operator ++()
 {
-    index++;
+	if (index < size - 1)
+	{
+		index++;
+	}
 }
 template<class T>
 void Vecteur<T>::operator ++(int)
 {
-    index++;
+	if (index < size - 1)
+	{
+		index++;
+	}
 }
 
 template<class T>
 void Vecteur<T>::operator --()
 {
-    index--;
+	if (index > 0)
+	{
+		index--;
+	}
 }
 
 template<class T>
 void Vecteur<T>::operator --(int)
 {
-    index--;
+	if (index > 0)
+	{
+		index--;
+	}
 }
 
 template<class T>
 int Vecteur<T>::getIndex()
 {
     return index;
+}
+
+template<class T>
+void Vecteur<T>::setIndex(int i)
+{
+	index = i;
+}
+
+
+template<class T>
+T Vecteur<T>::getCurrent()
+{
+	return elements[index];
+}
+
+ostream& operator<<(ostream &s,  const DonneesTest &donnees) 
+{
+ s << "Type test : " << donnees.typeTest << endl
+		<< "Adresse switches : " << donnees.registreSW << endl
+		<< "Retour switches : " << donnees.retourSW << " (" << hex << donnees.retourSW << ")" << endl
+		<< "Etat switches : " << donnees.etatSW << " (" << hex << donnees.etatSW << ")" << endl
+		<< "Adresse leds : " << donnees.registreLD << endl
+		<< "Valeur leds : " << donnees.valeurLD << " (" << hex << donnees.valeurLD << ")" << endl
+		<< "Etat leds : " << donnees.etatLD << " (" << hex << donnees.etatLD << ")" << endl;
+ return s;
 }
 #endif

@@ -28,6 +28,7 @@ struct DonneesTest
 	int etatLD;
 };
 
+
 class VisiTest: public QMainWindow
 {
 	Q_OBJECT
