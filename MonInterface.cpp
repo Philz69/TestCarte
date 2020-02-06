@@ -152,11 +152,26 @@ void  MonInterface::vider()
 }
 void  MonInterface::modeFile()
 {
-	Archive.setMode(QUEUE);
+	if (Archive.isEmpty())
+	{
+		Archive.setMode(QUEUE);
+	}
+	else
+	{
+		message("Veuillez vider le vecteur avant de changer le mode");
+	}
 }
 void  MonInterface::modePile()
 {
-	Archive.setMode(PILE);
+	if (Archive.isEmpty())
+	{
+		Archive.setMode(PILE);
+	}
+	else
+	{
+		message("Veuillez vider le vecteur avant de changer le mode");
+	}
+	
 }
 
 void  MonInterface::premier()

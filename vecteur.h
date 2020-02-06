@@ -21,6 +21,7 @@ class Vecteur
         int getCapacity();
         int getSize(); 
         int getIndex(); 
+		void moveRight();
 		void setMode(int i);
 		void setIndex(int i);
 		T getCurrent();
@@ -41,7 +42,6 @@ class Vecteur
         int size;
         int index;
 		int mode;
-		int mode;
 };
 
 template<class T>
@@ -51,6 +51,7 @@ Vecteur<T>::Vecteur()
     size = 0;
     capacity = 1; 
     index = 0;
+	mode = QUEUE;
 }
 
 template<class T>
@@ -106,19 +107,15 @@ void Vecteur<T>::operator+=(T element)
     {
         capacity = doubleCapacity();
     } 
-	if (mode == QUEUE)
+	if (mode == QUEUE || size < 1)
 	{
 		elements[size] = element;
 		size++;
 	}
-	if (mode == PILE)
+	else if (mode == PILE && size > 0)
 	{
-		tmp = new T*;
-		for (int i = 0; i < size; i++)
-		{
-			tmp[size - i] = elements[i];	
-		}
-		tmp[0] = element;
+		moveRight();
+		elements[0] = element;
 		size++;
 	}
 }
@@ -231,6 +228,22 @@ template<class T>
 void Vecteur<T>::setMode(int i)
 {
 	mode = i;
+}
+
+template<class T>
+void Vecteur<T>::moveRight()
+{
+	if (size == capacity)
+	{
+		capacity = doubleCapacity();
+	}
+	T* tmp = new T[capacity];
+	for (int i = 0; i < size; i++)
+	{
+		tmp[i + 1] = elements[i];
+	}
+	delete elements;
+	elements = tmp;
 }
 
 ostream& operator<<(ostream &s,  const DonneesTest * donnees) 

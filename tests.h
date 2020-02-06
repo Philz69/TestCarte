@@ -7,6 +7,7 @@ public:
     Tests();
     ~Tests();
     void testsVecteur(); 
+    void testsVecteur(int mode); 
     void testsFPGA(); 
 };
 
@@ -48,8 +49,41 @@ void Tests::testsVecteur()
 
     cout << "--- Test d'operateur << ---" << endl;
     cout << vecteurTest;
+	cout << "--- Test moveRight() ---" << endl;
+		vecteurTest.moveRight();
+    cout << "--- Test d'operateur << ---" << endl;
+    cout << vecteurTest;
 }
 
+void Tests::testsVecteur(int mode)
+{
+    cout << "--- Test d'operateur += ---" << endl;
+    Vecteur<int> vecteurTest;
+	vecteurTest.setMode(mode);
+    cout << "Grosseur avant ajout: " << vecteurTest.getSize() << endl;
+    for (int i = 0; i < 10; i++)
+    {
+        vecteurTest += i;
+    }
+
+    cout << "Grosseur apres ajout: " << vecteurTest.getSize() << endl;
+
+    cout << "--- Test d'operateur[] ---" << endl;
+    for (int i = 0; i < 10; i++)
+    {
+        cout << "vecteurTest[" << i << "] = " << vecteurTest[i] << endl;
+    }
+
+    cout << "--- Test d'index ---" << endl;
+    cout << vecteurTest.getIndex() << endl;
+    vecteurTest++;
+    cout << "vecteurTest++ -> " << vecteurTest.getIndex() << endl;
+    vecteurTest--;
+    cout << "vecteurTest++ -> " << vecteurTest.getIndex() << endl;
+
+    cout << "--- Test d'operateur << ---" << endl;
+    cout << vecteurTest;
+}
 void Tests::testsFPGA()
 {
 	Manip fpga;
