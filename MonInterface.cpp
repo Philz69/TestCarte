@@ -124,15 +124,15 @@ void MonInterface::testSuivant()
 	setArchive(donnee.typeTest, donnee.registreSW);
 	if (donnee.typeTest == 3) donnee.typeTest = 0;
 	donnee.typeTest++;
-	if (save == true) message("Les tests sont maintenant enregistrer");
-	else message("Les tests ne sont pas enregistre");
+	if (save == true) message("Les tests sont enregistrer");
+	else message("Les tests ne sont pas enregistrer");
 }
 
 void MonInterface::demarrer()
 {
 
 	save = true;
-	message("Les tests sont maintenant enregistrer");
+	message("Les tests sont enregistrer");
 
 }
 
