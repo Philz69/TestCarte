@@ -161,7 +161,7 @@ void Vecteur<T>::operator ++()
     index++;
 }
 template<class T>
-void Vecteur<T>::operator ++(T)
+void Vecteur<T>::operator ++(int)
 {
     index++;
 }
@@ -173,7 +173,7 @@ void Vecteur<T>::operator --()
 }
 
 template<class T>
-void Vecteur<T>::operator --(T)
+void Vecteur<T>::operator --(int)
 {
     index--;
 }
