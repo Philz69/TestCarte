@@ -162,26 +162,22 @@ void  MonInterface::modePile()
 void  MonInterface::premier()
 {
 	Archive.setIndex(0);
-	setArchive(*Archive.getCurrent());
-	setArchive(Archive.getIndex() + 1, Archive.getSize());
+	updateArchive();
 }
 void  MonInterface::dernier()
 {
 	Archive.setIndex(Archive.getSize() - 1);
-	setArchive(*Archive.getCurrent());
-	setArchive(Archive.getIndex() + 1, Archive.getSize());
+	updateArchive();
 }
 void  MonInterface::precedent()
 {
 	Archive--;
-	setArchive(*Archive.getCurrent());
-	setArchive(Archive.getIndex() + 1, Archive.getSize());
+	updateArchive();
 }
 void  MonInterface::suivant()
 {
 	Archive++;
-	setArchive(*Archive.getCurrent());
-	setArchive(Archive.getIndex() + 1, Archive.getSize());
+	updateArchive();
 }
 
 void  MonInterface::sauvegarder(char* nomFichier)
@@ -195,4 +191,13 @@ void  MonInterface::quitter()
 
 }
 
+void MonInterface::updateArchive()
+{
+	if (Archive.getCurrent() != NULL)
+	{
+		setArchive(*Archive.getCurrent());
+	}
+	setArchive(Archive.getIndex() + 1, Archive.getSize());
 
+
+}

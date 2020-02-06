@@ -17,12 +17,12 @@
 #define PILE 0
 #define QUEUE 1
 
-
 class MonInterface : public VisiTest
 {
 public:
 	MonInterface(const char *theName);
 	void demarrer();
+	void updateArchive();
 public slots:
 	void testSuivant();
 	 void arreter();

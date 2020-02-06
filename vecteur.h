@@ -1,7 +1,6 @@
 
 #ifndef VECTEUR_H
 #define VECTEUR_H
-
 #include <iostream>
 using namespace std;
 
@@ -38,6 +37,7 @@ class Vecteur
         int capacity;
         int size;
         int index;
+		int mode;
 };
 
 template<class T>
@@ -213,12 +213,12 @@ T Vecteur<T>::getCurrent()
 ostream& operator<<(ostream &s,  const DonneesTest * donnees) 
 {
       s << "Type test : "               << donnees->typeTest   << endl
-		<< "Adresse switches : "        << donnees->registreSW << endl
+		<< "Adresse switches : " << dec << donnees->registreSW << endl
 		<< "Retour switches : "  << dec << donnees->retourSW   << " (" << hex << donnees->retourSW << ")" << endl
 		<< "Etat switches : "    << dec << donnees->etatSW     << " (" << hex << donnees->etatSW << ")" << endl
-		<< "Adresse leds : "            << donnees->registreLD << endl
+		<< "Adresse leds : "     << dec << donnees->registreLD << endl
 		<< "Valeur leds : "      << dec << donnees->valeurLD   << " (" << hex << donnees->valeurLD << ")" << endl
-		<< "Etat leds : "        << dec <<donnees->etatLD      << " (" << hex << donnees->etatLD << ")" << endl;
+		<< "Etat leds : "        << dec << donnees->etatLD     << " (" << hex << donnees->etatLD << ")" << endl;
  return s;
 }
 
