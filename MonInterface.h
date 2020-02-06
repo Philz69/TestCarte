@@ -25,6 +25,7 @@ public slots:
 	virtual	void testSuivant();
 private:
 	DonneesTest donnee;
+	Manip fpga;
 };
 
 #endif // MONINTERFACE_H

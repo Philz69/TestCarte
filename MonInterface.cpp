@@ -25,10 +25,10 @@ int main(int argc, char ** argv)
 MonInterface::MonInterface(const char * theName) : VisiTest(theName)
 {
 	donnee.typeTest = 1;
-	donnee.registreSW = 1;
+	donnee.registreSW = 8;
 	donnee.retourSW = 1;
 
-	donnee.registreLD = 1;
+	donnee.registreLD = 10;
 	donnee.valeurLD = 1;
 
 	donnee.etatLD = 1;
@@ -40,18 +40,93 @@ MonInterface::MonInterface(const char * theName) : VisiTest(theName)
 
 void MonInterface::testSuivant()
 {
+	
+	if (donnee.typeTest == 1)
+	{
+		
+		donnee.registreSW = 8;
+		donnee.retourSW = fpga.LireSwitch();
+		donnee.registreLD = 10;
+		donnee.etatLD= fpga.LireSwitch();
+		donnee.etatSW = fpga.LireSwitch();
+		
+
+		donnee.etatLD= fpga.LireSwitch();
+		fpga.ActiverLED(fpga.LireSwitch());
+		 
+
+	}
+
+	 if (donnee.typeTest == 2)
+	{
+		int count = 0;
+		donnee.registreSW = 8;
+		donnee.retourSW = fpga.LireSwitch();
+		donnee.etatSW = fpga.LireSwitch();
+		donnee.registreLD = 10;
+		
+		if ((fpga.LireSwitch() & 128) == 128)  count++;
+		if ((fpga.LireSwitch() & 64) == 64) count++;
+		if ((fpga.LireSwitch() & 32) == 32) count++;
+		if ((fpga.LireSwitch() & 16) == 16) count++;
+		if ((fpga.LireSwitch() & 8 )== 8) count++;
+		if ((fpga.LireSwitch() & 4 )== 4) count++;
+		if ((fpga.LireSwitch() & 2 )== 2) count++;
+		if ((fpga.LireSwitch() & 1) == 1) count++;
+		if (count == 0)
+		{
+			donnee.valeurLD = 0;
+			fpga.ActiverLED(0);
+			donnee.etatLD = 0;
+		}
+		else if (count % 2 == 0)
+		{
+			fpga.ActiverLED(0xff);
+			donnee.valeurLD = 0xff;
+			donnee.etatLD = 0xff;
+		}
+		else
+		{
+			fpga.ActiverLED(0);
+			donnee.valeurLD = 0;
+			donnee.etatLD = 0;
+		}
+		
+
+	}
+
+	 if (donnee.typeTest == 3)
+	{
+		
+		donnee.registreSW = 8;
+		donnee.retourSW = fpga.LireSwitch();
+
+		donnee.registreLD = 10;
+		donnee.valeurLD = fpga.LireSwitch();
+
+		donnee.etatLD = fpga.LireSwitch();
+		donnee.etatSW = fpga.LireSwitch();
+		
+
+	}
+	
+	
+
+
 	setTest(donnee);
 	setArchive(donnee);
 	setArchive(donnee.typeTest, donnee.registreSW);
-   
-   if(donnee.etatLD > 0x80)
+	if (donnee.typeTest == 3) donnee.typeTest = 0;
+	donnee.typeTest++;
+
+   /*if(donnee.etatLD > 0x80)
 	{
 		donnee.typeTest = 1;
 
-		donnee.registreSW = 1;
+		donnee.registreSW = 8;
 		donnee.retourSW = 1;
 
-		donnee.registreLD = 1;
+		donnee.registreLD = 10;
 		donnee.valeurLD = 1;
 
 		donnee.etatLD = 1;
@@ -61,21 +136,28 @@ void MonInterface::testSuivant()
 	{
 		donnee.typeTest++;
 		
-		donnee.registreSW++;
+		//donnee.registreSW++;
 		donnee.retourSW <<= 1;
 
-		donnee.registreLD++;
+		//donnee.registreLD++;
 		donnee.valeurLD <<= 1;
 
 		donnee.etatLD <<= 1;
 		donnee.etatSW <<= 1;
-	}
-
-   message("bye");
+	}*/
+  
+   message("be");
 }
 
 void MonInterface::demarrer()
 {
 	Tests tests;
 	tests.testsFPGA();
+	message("Demarer");
+	Manip fpga;
+	
+
 }
+
+
+

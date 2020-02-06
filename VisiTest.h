@@ -65,4 +65,8 @@ private:
 	QWidget *widget;
 };
 
+
+
+
+
 #endif //VISITEST_H

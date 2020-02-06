@@ -1,17 +1,2 @@
 ﻿  MonInterface.cpp
-c:\users\frank\documents\github\testcarte\manip.h(35): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-c:\users\frank\documents\github\testcarte\manip.h(36): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-c:\users\frank\documents\github\testcarte\manip.h(37): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-c:\users\frank\documents\github\testcarte\manip.h(38): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-c:\users\frank\documents\github\testcarte\manip.h(39): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-c:\users\frank\documents\github\testcarte\manip.h(40): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-c:\users\frank\documents\github\testcarte\manip.h(41): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-c:\users\frank\documents\github\testcarte\manip.h(50): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-c:\users\frank\documents\github\testcarte\manip.h(51): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-c:\users\frank\documents\github\testcarte\manip.h(52): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-c:\users\frank\documents\github\testcarte\manip.h(53): warning C4554: '&' : vérifiez si la priorité des opérateurs n'est pas une cause possible d'erreur ; utilisez des parenthèses pour rendre les priorités plus claires
-  main.cpp
-  Génération de code en cours...
-c:\users\frank\documents\github\testcarte\manip.h(42): warning C4172: retourne l'adresse d'une variable locale ou : Switch temporaire
-c:\users\frank\documents\github\testcarte\manip.h(54): warning C4172: retourne l'adresse d'une variable locale ou : Bouton temporaire
-  philfrank.vcxproj -> C:\Users\frank\Documents\GitHub\TestCarte\debug\philfrank.exe
+  philfrank.vcxproj -> C:\Users\frank\Desktop\Githubrepo\TestCarte\debug\philfrank.exe

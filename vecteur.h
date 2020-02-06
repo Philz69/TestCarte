@@ -36,6 +36,8 @@ class Vecteur
         int capacity;
         int size;
         int index;
+		bool pile = 0;
+		bool queu = 0;
 };
 
 template<class T>
